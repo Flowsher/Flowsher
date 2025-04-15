@@ -1,0 +1,28 @@
+--Follow poity101 on roblox, Flowsher
+--Variables
+local Object = "Une épée" --Quelle Objet ?
+local Action = "Prendre" --Quelle Action
+local Time = 1 --Combien de Temps ? 0 = Direct
+local Key = Enum.KeyCode.E --Quelle Touche ?
+local Tool = script.Parent.Parent
+local Handle = Tool.Handle
+local Touch = Handle:FindFirstChild("TouchInterest")
+local ProximityPrompt = Instance.new("ProximityPrompt")
+
+--Fonctions
+
+ProximityPrompt.Parent = Handle
+ProximityPrompt.KeyboardKeyCode = Key
+ProximityPrompt.ObjectText = Object
+ProximityPrompt.ActionText = Action
+ProximityPrompt.HoldDuration = Time
+
+if Touch ~= nil then
+ Touch:Destroy()
+end
+
+ProximityPrompt.TriggerEnded:Connect(function(plr)
+ local Backpack = plr.Backpack
+ Tool.Parent = Backpack
+ ProximityPrompt:Destroy()
+end)
