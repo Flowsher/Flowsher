@@ -1,0 +1,2 @@
+--Flowsher,Follow poity101 on roblox
+game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Died.SoundId = "rbxassetid://" --id du son
